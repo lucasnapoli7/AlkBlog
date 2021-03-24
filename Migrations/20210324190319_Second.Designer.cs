@@ -4,14 +4,16 @@ using AlkBlog.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AlkBlog.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20210324190319_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,8 +41,8 @@ namespace AlkBlog.Migrations
                     b.Property<string>("image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("is_deleted")
-                        .HasColumnType("bit");
+                    b.Property<int>("state")
+                        .HasColumnType("int");
 
                     b.Property<string>("title")
                         .IsRequired()

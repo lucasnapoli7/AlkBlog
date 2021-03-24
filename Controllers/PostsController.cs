@@ -58,6 +58,7 @@ namespace AlkBlog.Controllers
             if (ModelState.IsValid)
             {
                 post.creation_date = DateTime.Now;
+                post.is_deleted = false;
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -141,7 +142,9 @@ namespace AlkBlog.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var post = await _context.Posts.FindAsync(id);
-            _context.Posts.Remove(post);
+            post.is_deleted = true;
+            _context.Update(post);
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

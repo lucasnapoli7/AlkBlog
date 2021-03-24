@@ -24,6 +24,7 @@ namespace AlkBlog.Models
         public Category category { get; set; }
         [Display(Name = "Creation date")]
         public DateTime creation_date { get; set; }
+        public bool is_deleted { get; set; }
         public Post()
         {
 
