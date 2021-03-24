@@ -15,6 +15,7 @@ namespace AlkBlog.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Post>().HasQueryFilter(r => !r.is_deleted);
             base.OnModelCreating(modelBuilder);
         }
     }
