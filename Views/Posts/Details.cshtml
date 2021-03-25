@@ -10,7 +10,7 @@
         <img src="@Model.image" class="mb-4 col-12 images" />
         <p>@Model.content</p>
         <hr class="col-12" />
-        <p>Posted on @Model.creation_date.ToString("dd/MM/yyyy") - <b>Category</b>: @Model.category</p>
+        <p>Posted on @Model.creationDate.ToString("dd/MM/yyyy") - <b>Category</b>: @Model.category</p>
     </div>
     <div class="row justify-content-end">
         <a asp-action="Index" class="btn btn-primary mr-2">Back to Home</a>

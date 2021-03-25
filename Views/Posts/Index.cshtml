@@ -17,7 +17,7 @@
             <img src="@item.image" class="card-img-top rounded image">
             <div class="card-body">
                 <h3 class="card-title"><a asp-action="Details" asp-route-id="@item.ID">@item.title</a></h3>
-                <p class="card-text">Posted on @item.creation_date.ToString("dd/MM/yyyy") - Category: @item.category</p>
+                <p class="card-text">Posted on @item.creationDate.ToString("dd/MM/yyyy") - Category: @item.category</p>
                 <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary">Read More</a>
                 <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a>
                 <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>

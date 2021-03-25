@@ -21,7 +21,7 @@ namespace AlkBlog.Controllers
         // GET: Posts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Posts.OrderByDescending(post => post.creation_date).ToListAsync());
+            return View(await _context.Posts.OrderByDescending(post => post.creationDate).ToListAsync());
         }
 
         // GET: Posts/Details/5
@@ -57,8 +57,8 @@ namespace AlkBlog.Controllers
         {
             if (ModelState.IsValid)
             {
-                post.creation_date = DateTime.Now;
-                post.is_deleted = false;
+                post.creationDate = DateTime.Now;
+                post.isDeleted = false;
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -79,7 +79,7 @@ namespace AlkBlog.Controllers
             {
                 return NotFound();
             }
-            ViewBag.creation_date = post.creation_date;
+            ViewBag.creation_date = post.creationDate;
             return View(post);
         }
 
@@ -142,7 +142,7 @@ namespace AlkBlog.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var post = await _context.Posts.FindAsync(id);
-            post.is_deleted = true;
+            post.isDeleted = true;
             _context.Update(post);
 
             await _context.SaveChangesAsync();

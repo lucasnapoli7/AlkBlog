@@ -9,6 +9,8 @@ namespace AlkBlog.Models
     public class Post
     {
         public int ID { get; set; }
+        [Display(Name = "Creation date")]
+        public DateTime creationDate { get; set; }
         [Required]
         [StringLength(100,MinimumLength =1)]
         [Display(Name = "Title")]
@@ -22,9 +24,7 @@ namespace AlkBlog.Models
         [Required]
         [Display(Name = "Category")]
         public Category category { get; set; }
-        [Display(Name = "Creation date")]
-        public DateTime creation_date { get; set; }
-        public bool is_deleted { get; set; }
+        public bool isDeleted { get; set; }
         public Post()
         {
 
