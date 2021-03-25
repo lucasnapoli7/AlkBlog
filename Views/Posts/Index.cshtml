@@ -3,26 +3,36 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="row">
+    <div class="col-sm-6">
+        <h1>Home</h1>
+    </div>
+    <div class="col-sm-6">
+        <a asp-action="Create" class="btn btn-success d-block my-2">New post</a>
+    </div>
+    
+</div>
 
-<h1>Home</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-dark">New post</a>
-</p>
 <div class="row">
     @foreach (var item in Model)
     {
     <div class="post col-sm-6">
-        <div class="card mb-3 px-3 pt-3">
-            <img src="@item.image" class="card-img-top rounded image">
-            <div class="card-body">
-                <h3 class="card-title"><a asp-action="Details" asp-route-id="@item.ID">@item.title</a></h3>
-                <p class="card-text">Posted on @item.creationDate.ToString("dd/MM/yyyy") - Category: @item.category</p>
-                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary">Read More</a>
-                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a>
-                <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+        <div class="card mb-3">
+            @if (item.image != null)
+            {
+                <div class="px-3 pt-3">
+                    <img src="@item.image" class="card-img-top rounded image">
+                </div>
+            }
+                <div class="card-body">
+                    <h3 class="card-title"><a asp-action="Details" asp-route-id="@item.ID">@item.title</a></h3>
+                    <p class="card-text">Posted on @item.creationDate.ToString("dd/MM/yyyy") - Category: @item.category</p>
+                    <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary">Read More</a>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </div>
             </div>
-        </div>
     </div>
         
     }

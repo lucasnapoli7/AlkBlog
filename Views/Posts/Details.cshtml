@@ -7,11 +7,12 @@
 <div class="container">
     <div class="row justify-content-center align-items-center minh-100">
         <h1 class="text-center mb-3">@Model.title</h1>
-        <img src="@Model.image" class="mb-4 col-12 images" />
+        @if (Model.image != null)
+        {<img src="@Model.image" class="mb-4 col-12 images" />}
         <p>@Model.content</p>
         <hr class="col-12" />
         <p>Posted on @Model.creationDate.ToString("dd/MM/yyyy") - <b>Category</b>: @Model.category</p>
-    </div>
+        </div>
     <div class="row justify-content-end">
         <a asp-action="Index" class="btn btn-primary mr-2">Back to Home</a>
         <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-primary mr-2">Edit</a>
